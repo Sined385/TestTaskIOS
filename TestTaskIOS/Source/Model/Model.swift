@@ -10,7 +10,14 @@ import Foundation
 
 class Model {
     
-    init() {}
+    var viewControllers: [CollectionVC] = []
+    var numberOfPages = 3
     
-    
+    init() {
+        
+        for _ in 0..<numberOfPages {
+            let vc = CollectionVC.init(nibName: String.init(describing: CollectionVC.self), bundle: nil)
+            viewControllers.append(vc)
+        }
+    }
 }

@@ -9,22 +9,48 @@
 import UIKit
 import API
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var pageControl: UIPageControl!
+class ViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     let model: Model
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    required init?(coder: NSCoder) {
         self.model = Model.init()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(coder: coder)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.model = Model.init()
-        super.init(coder: aDecoder)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dataSource = self
+        delegate = self
+        guard let firstVC = model.viewControllers.first else { return }
+        setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewController = viewController as? CollectionVC else { return nil }
+        if let index = model.viewControllers.firstIndex(of: viewController) {
+            
+            if index > 0 {
+                return model.viewControllers[index - 1]
+            }
+        }
+        
+        return nil
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewController = viewController as? CollectionVC else { return nil }
+        if let index = model.viewControllers.firstIndex(of: viewController) {
+            if index < model.viewControllers.count - 1 {
+                return model.viewControllers[index + 1]
+            }
+        }
+        
+        return nil
+    }
 }
 
 //let network = Network.init()
