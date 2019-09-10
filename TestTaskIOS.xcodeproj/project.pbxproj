@@ -99,9 +99,9 @@
 		745362DD232787E400869C24 /* TestTaskIOS */ = {
 			isa = PBXGroup;
 			children = (
+				745362E2232787E400869C24 /* Main.storyboard */,
 				745362DE232787E400869C24 /* AppDelegate.swift */,
 				745362E0232787E400869C24 /* ViewController.swift */,
-				745362E2232787E400869C24 /* Main.storyboard */,
 				745362E8232787E500869C24 /* Assets.xcassets */,
 				745362EA232787E500869C24 /* LaunchScreen.storyboard */,
 				745362ED232787E500869C24 /* Info.plist */,
