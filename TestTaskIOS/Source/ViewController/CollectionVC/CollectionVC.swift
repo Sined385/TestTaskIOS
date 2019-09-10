@@ -16,6 +16,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var controllerIndex: Int = 0
     let model = CollectionVCModel.init()
     private var images: [UIImage] = []
+    private var imageView: UIImageView?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -31,8 +32,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
+        let nib = UINib.init(nibName: String.init(describing: ImageCell.self), bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: ImageCell.identifier)
         loadPhotos()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        imageView = UIImageView.init(frame: self.view.frame)
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(removeImageView))
+        imageView?.addGestureRecognizer(tapGesture)
     }
     
     func loadPhotos() {
@@ -56,6 +66,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let imageView = self.imageView else { return }
+        imageView.image = images[indexPath.row]
+        imageView.isUserInteractionEnabled = true
+        self.view.addSubview(imageView)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sideSize = collectionView.frame.width / 3 - 20
         return CGSize.init(width: sideSize, height: sideSize)
@@ -63,5 +81,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    @objc func removeImageView() {
+        
+        self.imageView?.removeFromSuperview()
     }
 }

@@ -17,7 +17,7 @@ class Model {
         
         for number in 0..<numberOfPages {
             let vc = CollectionVC.init(nibName: String.init(describing: CollectionVC.self), bundle: nil)
-            vc.controllerIndex = number
+            vc.controllerIndex = number + 1
             viewControllers.append(vc)
         }
     }

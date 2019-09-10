@@ -12,17 +12,20 @@ import Alamofire
 enum ParameterBuilder: ParameterBuilderInterface {
     
     case getPhotos(_ model: RequestConvertable)
+    case searchPhotos(_ model: RequestConvertable)
     
     var path: String {
         
         switch self {
         case .getPhotos:
             return String(Endpoint.baseURL.rawValue) + "photos/"
+        case .searchPhotos:
+            return String(Endpoint.baseURL.rawValue) + "search/photos/"
         }
     }
     
     var httpMethod: HTTPMethod {
-    return .get
+        return .get
     }
     
     var headers: HTTPHeaders {
@@ -33,7 +36,8 @@ enum ParameterBuilder: ParameterBuilderInterface {
     var parameters: Parameters {
         
         switch self {
-        case let .getPhotos(model):
+        case let .getPhotos(model),
+             let .searchPhotos(model):
             return model.asDictionary()
         }
     }

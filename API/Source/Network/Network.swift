@@ -38,6 +38,12 @@ public class Network: CoreNetwork {
             }
         }
     }
+    
+    public func searchPhotos(model: SearchPhotoRequestModel) {
+        
+        let internalModel = SearchPhotosConvertable.init(model: model)
+//        super.performRequest(parameterBuilder: .searchPhotos(internalModel), responseModel: <#T##Decodable.Protocol#>, completion: <#T##(Result<Decodable, Error>) -> Void#>)
+    }
 }
 
 
