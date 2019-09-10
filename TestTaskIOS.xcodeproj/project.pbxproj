@@ -45,6 +45,7 @@
 		745363B92327C07200869C24 /* CollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745363B82327C07200869C24 /* CollectionVC.xib */; };
 		745363BB2327C0F900869C24 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745363BA2327C0F900869C24 /* ImageCell.xib */; };
 		745363BD2327C13200869C24 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745363BC2327C13200869C24 /* ImageCell.swift */; };
+		745363C42327E09200869C24 /* CollectionVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745363C32327E09200869C24 /* CollectionVCModel.swift */; };
 		91B0599C1816C1FF6A537528 /* Pods_TestTaskIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212DD0E44EF7E63479AFD753 /* Pods_TestTaskIOSUITests.framework */; };
 		B3E22E9F1D16E58ACE09821A /* Pods_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577F8ED7CD90F35357F1CC57 /* Pods_API.framework */; };
 		F9CFE151FE1690F20B060035 /* Pods_TestTaskIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC4A22B410449CCAA7E85B5 /* Pods_TestTaskIOS.framework */; };
@@ -154,6 +155,7 @@
 		745363B82327C07200869C24 /* CollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionVC.xib; sourceTree = "<group>"; };
 		745363BA2327C0F900869C24 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		745363BC2327C13200869C24 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		745363C32327E09200869C24 /* CollectionVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVCModel.swift; sourceTree = "<group>"; };
 		8BC4A22B410449CCAA7E85B5 /* Pods_TestTaskIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTaskIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C5BB23BB50F60A4E0A0C7 /* Pods-API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API.debug.xcconfig"; path = "Target Support Files/Pods-API/Pods-API.debug.xcconfig"; sourceTree = "<group>"; };
 		C0CE7C7F4700C9013A71DBD4 /* Pods-APITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APITests.release.xcconfig"; path = "Target Support Files/Pods-APITests/Pods-APITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		745363AE2327B6C700869C24 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				745363C22327E08000869C24 /* CollectionVCModel */,
 				745363AF2327B6E000869C24 /* Model.swift */,
 			);
 			path = Model;
@@ -450,6 +453,14 @@
 				745363BA2327C0F900869C24 /* ImageCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		745363C22327E08000869C24 /* CollectionVCModel */ = {
+			isa = PBXGroup;
+			children = (
+				745363C32327E09200869C24 /* CollectionVCModel.swift */,
+			);
+			path = CollectionVCModel;
 			sourceTree = "<group>";
 		};
 		7864665DC2BE43BFA6081427 /* Pods */ = {
@@ -852,6 +863,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745363C42327E09200869C24 /* CollectionVCModel.swift in Sources */,
 				745362E1232787E400869C24 /* ViewController.swift in Sources */,
 				745362E7232787E400869C24 /* TestTaskIOS.xcdatamodeld in Sources */,
 				745362DF232787E400869C24 /* AppDelegate.swift in Sources */,

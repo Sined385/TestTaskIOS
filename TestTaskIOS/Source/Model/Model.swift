@@ -15,8 +15,9 @@ class Model {
     
     init() {
         
-        for _ in 0..<numberOfPages {
+        for number in 0..<numberOfPages {
             let vc = CollectionVC.init(nibName: String.init(describing: CollectionVC.self), bundle: nil)
+            vc.controllerIndex = number
             viewControllers.append(vc)
         }
     }

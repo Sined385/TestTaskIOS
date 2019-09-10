@@ -53,23 +53,4 @@ class ViewController: UIPageViewController, UIPageViewControllerDelegate, UIPage
     }
 }
 
-//let network = Network.init()
-//
-//let model = GetPhotosRequestModel.init(page: 1, perPage: 30, orderBy: .latest)
-//network.getPhotos(model: model) { (result) in
-//
-//    switch result {
-//    case .success(let data):
-//        guard let url = data.first?.urls?.regular else { return }
-//        network.downloadImage(url: url, completion: { (result) in
-//            switch result {
-//            case .success(let data):
-//                guard let img = UIImage.init(data: data, scale: 1) else { return }
-//                self.imageView.image = img
-//            case .failure(let error):
-//                print(error)
-//            }
-//        })
-//    case .failure(let error):
-//        print(error)
-//}
+
